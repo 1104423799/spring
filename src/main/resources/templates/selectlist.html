@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:\\www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生后台管理系统</title>
+
+    <style type="text/css">
+        .header{
+            height: 60px;
+            width: auto;
+            background-color: #100f1e;
+            padding:  0 0 0 0;
+            position: relative;
+        }
+        .container{
+            padding: 0 15px;
+            width: 100%;
+        }
+        .container ul{
+            padding: 15px 0 0 0;
+            font-family: Arial;
+            font-size: larger;
+
+
+        }
+        .edge{
+            float: left;
+            width: 12%;
+            height: 100000%;
+            background-color: #0b152f;
+            padding: 0 0 0 0 ;
+        }
+        .edge ul{
+            display:inline-block;
+            font-family: Arial;
+            font-size: medium;
+
+        }
+        .edge-right{
+            padding: 0 0 0 0 ;
+            height: 100000%;
+            background-color: rgba(255, 255, 255, 0.63);
+        }
+        a{
+            text-decoration: none
+        }
+        .edge-right text{
+            padding: 0 100px 0 50px ;
+        }
+        .right1{
+            margin-left: 200px;
+            padding: 10px 0 0px 0 ;
+            font-size: 8px;
+            margin-bottom: 50px;
+        }
+        .right2{
+            border: 1px solid #c0b9b9;
+            margin-right: 200px;
+
+        }
+        .rightall{
+            background-color: #c0b9b9;
+            height: 10000%;
+
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="header" >
+    <div class="container">
+        <ul><font color="#c0b9b9">学生后台管理系统</font></ul>
+    </div>
+    <div class="edge">
+        <ul style="padding: 10px 0 30px 10px" ><a href="/listvideo" > <font color="#f0ffff" >教学视屏管理</font></a></ul>
+        <ul style="padding: 0 0 30px 10px"><a href="/list" ><font color="#f0ffff">学生信息维护</font></a></ul>
+        <ul style="padding: 0 0 0 10px"><a href="/listnew" ><font color="#f0ffff">新闻活动管理</font></a></ul>
+    </div>
+    <div class="rightall" >
+        <div class="edge-right">
+            <div class="right1">
+                <h1 >首页/学员信息管理</h1>
+            </div>
+            <div>
+                <a href="/toAdd" th:href="@{/toAdd}" class="btn btn-info">添加用户</a>
+                <a href="/toSelect" th:href="@{/toSelect}" class="btn btn-info">查询用户</a>
+            </div>
+            <div>
+                已为你查询到该学生信息
+            </div>
+            <div class="right2">
+                <div style="border: 1px solid #c0b9b9; height: 30px; ">
+                    <text>编号</text>
+                    <text>姓名</text>
+                    <text>专业</text>
+                    <text>年龄</text>
+                    <text>操作</text>
+
+
+                </div>
+                <div>
+<table style="border-collapse:separate; border-spacing:70px 10px;">
+
+    <tr   th:each="lists :${lists}" >
+        <td STYLE="width: 20%" scope="row" th:text="${lists.id}">2</td>
+        <td STYLE="width: 10%" th:text="${lists.name}">sss</td>
+        <td  STYLE="width: 30%" th:text="${lists.academy}">sss</td>
+        <td style="width: 20%" th:text="${lists.age}">20</td>
+
+
+    </tr>
+
+</table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+
+</script>
+</body>
+</html>

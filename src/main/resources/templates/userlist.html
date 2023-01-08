@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:\\www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生后台管理系统</title>
+
+    <style type="text/css">
+        .header{
+            height: 60px;
+            width: auto;
+            background-color: #100f1e;
+            padding:  0 0 0 0;
+            position: relative;
+        }
+        .container{
+            padding: 0 15px;
+            width: 100%;
+        }
+        .container ul{
+            padding: 15px 0 0 0;
+            font-family: Arial;
+            font-size: larger;
+
+
+        }
+        .edge{
+            float: left;
+            width: 12%;
+            height: 100000%;
+            background-color: #0b152f;
+            padding: 0 0 0 0 ;
+        }
+        .edge ul{
+            display:inline-block;
+            font-family: Arial;
+            font-size: medium;
+
+        }
+        .edge-right{
+            padding: 0 0 0 0 ;
+            height: 100000%;
+            background-color: rgba(255, 255, 255, 0.63);
+        }
+        a{
+            text-decoration: none
+        }
+        .edge-right text{
+            padding: 0 100px 0 50px ;
+        }
+.right1{
+    margin-left: 200px;
+    padding: 10px 0 0px 0 ;
+    font-size: 8px;
+    margin-bottom: 50px;
+}
+.right2{
+border: 1px solid #c0b9b9;
+    margin-right: 200px;
+
+}
+.rightall{
+    background-color: #c0b9b9;
+    height: 10000%;
+
+}
+
+
+
+
+
+    </style>
+</head>
+<body >
+<div class="header" >
+    <div class="container">
+        <ul><font color="#c0b9b9">学生后台管理系统</font></ul>
+
+    </div>
+    <div class="edge">
+        <ul style="padding: 10px 0 30px 10px" ><a href="/listvideo" > <font color="#f0ffff" >教学视屏管理</font></a></ul>
+        <ul style="padding: 0 0 30px 10px"><a href="/list" ><font color="#f0ffff">学生信息维护</font></a></ul>
+        <ul style="padding: 0 0 0 10px"><a href="/listnew" ><font color="#f0ffff">新闻活动管理</font></a></ul>
+    </div>
+    <div class="rightall" >
+    <div class="edge-right">
+        <div class="right1">
+        <h1 >首页/学生信息管理</h1>
+            <a href="/login" style="font-size: large ; margin-left: 80%">退出系统</a>
+    </div>
+        <div>
+            <a href="/toAdd" th:href="@{/toAdd}" class="btn btn-info">添加学生</a>
+            <a href="/toSelect" th:href="@{/toSelect}" class="btn btn-info">学生查询</a>
+        </div>
+
+        <div class="right2">
+        <div style="border: 1px solid #c0b9b9; height: 30px; ">
+            <text>编号</text>
+            <text>姓名</text>
+            <text>专业</text>
+            <text>年龄</text>
+            <text>操作</text>
+
+
+        </div>
+        <div>
+
+<table style="border-collapse:separate; border-spacing:70px 10px;">
+
+     <tr   th:each="student :${StudentEntities}" >
+      <td STYLE="width: 20%" scope="row" th:text="${student.id}"></td>
+      <td STYLE="width: 10%" th:text="${student.name}"></td>
+      <td  STYLE="width: 30%" th:text="${student.academy}"></td>
+         <td style="width: 20%" th:text="${student.age}"></td>
+         <td><a th:href="@{/toEdit(id=${student.id})}">编辑</a></td>
+    <td><a th:href="@{/delete(id=${student.id})}"  onclick="return confirm('确认是否删除此用户？')" >删除</a></td>
+        </tr>
+</table>
+        </div>
+
+        </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script>
+
+</script>
+</body>
+
+
+
+</html>
